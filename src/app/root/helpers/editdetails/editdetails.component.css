@@ -1,0 +1,13 @@
+.edit-dialog-content {
+    padding: 20px;
+  }
+  
+  .edit-dialog-actions {
+    padding: 10px 20px;
+    display: flex;
+    justify-content: flex-end;
+  }
+  
+  .full-width {
+    width: 100%;
+  }

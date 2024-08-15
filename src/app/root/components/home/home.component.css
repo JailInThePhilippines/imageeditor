@@ -1,0 +1,114 @@
+.btn {
+  width: 100%;
+}
+
+.image-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+}
+
+#imageCanvas {
+  max-height: 100%;
+  max-width: 100%;
+}
+
+.custom-modal-width {
+  max-width: 90%;
+}
+
+.full-size-image {
+  width: 100%;
+  height: auto;
+}
+
+.image-details {
+  border-left: 1px solid #ccc;
+  padding-left: 15px;
+  height: 100%;
+}
+
+.card {
+  box-shadow: -2px 13px 21px 1px rgba(0, 0, 0, 0.54);
+  -webkit-box-shadow: -2px 13px 21px 1px rgba(0, 0, 0, 0.54);
+  -moz-box-shadow: -2px 13px 21px 1px rgba(0, 0, 0, 0.54);
+}
+
+.card:hover {
+  transform: scale(1.05);
+  transition: all 0.1s ease-in-out;
+  cursor: pointer;
+}
+
+.card-img-top {
+  object-fit: cover; /* Ensure the image covers the area */
+}
+
+.custom-input, .custom-textarea {
+  border: none;
+  box-shadow: none;
+  outline: none;
+  background-color: transparent;
+  font-weight: bold;
+  font-family: 'Arial', sans-serif;
+}
+
+.custom-input {
+  font-size: 1.5em;
+}
+
+.custom-textarea {
+  font-size: 1em;
+  resize: none; /* Disable manual resizing */
+  overflow: hidden; /* Hide overflow to prevent scrollbars */
+}
+
+.timestamp {
+  position: absolute;
+  bottom: 10px;
+  right: 10px;
+  text-align: right;
+}
+
+.drag-drop-area {
+  border: 2px dashed #ccc;
+  border-radius: 5px;
+  padding: 20px;
+  text-align: center;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.drag-drop-area.dragging {
+  background-color: rgba(255, 255, 255, 0.1);
+}
+
+.upload-icon {
+  width: 120x;
+  height: 120px;
+}
+
+/* Add smooth transitions for the editing options */
+.editing-options {
+  transition: max-height 0.3s ease-in-out, opacity 0.3s ease-in-out;
+  overflow: hidden;
+}
+
+.editing-options-hidden {
+  max-height: 0;
+  opacity: 0;
+}
+
+.editing-options-visible {
+  max-height: 1000px; /* Adjust as needed */
+  opacity: 1;
+}
+
+.mat-icon-button {
+  color: #000; /* Adjust color as needed */
+}
+
+.mat-icon-button:hover {
+  background-color: rgba(0, 0, 0, 0.1); /* Adjust hover effect as needed */
+}

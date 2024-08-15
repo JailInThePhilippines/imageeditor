@@ -1,0 +1,88 @@
+<div class="modal-header">
+  <button mat-icon-button (click)="dialogRef.close()">
+    <mat-icon>close</mat-icon>
+  </button>
+</div>
+<div class="modal-body">
+  <div class="image-container">
+    <img id="imageToEdit" class="img-fluid" style="display: none;">
+    <canvas id="imageCanvas" class="img-fluid" width="400" height="400"></canvas>
+  </div>
+</div>
+<div class="editor-options">
+  <div class="menu-item">
+    <button mat-icon-button (click)="toggleTextOptions()">
+      <mat-icon>text_fields</mat-icon>
+    </button>
+    <span>Text</span>
+    <div *ngIf="showTextOptions" class="option-container">
+      <button mat-raised-button color="primary" (click)="addText('bottom')">Add Text</button>
+      <button mat-raised-button color="warn" (click)="deleteText('bottom')">Delete Text</button>
+      <label for="textBottomPosition" class="form-label">Text Position:</label>
+      <input type="range" id="textBottomPosition" min="0" max="100" [(ngModel)]="textBottomPosition" (input)="adjustTextPosition($event, 'bottom')" class="form-range">
+    </div>
+  </div>
+  <div class="menu-item">
+    <button mat-icon-button (click)="toggleFontSizeOptions()">
+      <mat-icon>format_size</mat-icon>
+    </button>
+    <span>Font Size</span>
+    <div *ngIf="showFontSizeOptions" class="option-container">
+      <label for="fontSize" class="form-label">Font Size:</label>
+      <input type="range" id="fontSize" min="10" max="200" [(ngModel)]="fontSize" (input)="adjustFontSize($event)" class="form-range">
+    </div>
+  </div>
+  <div class="menu-item">
+    <button mat-icon-button (click)="toggleFontColorOptions()">
+      <mat-icon>color_lens</mat-icon>
+    </button>
+    <span>Font Color</span>
+    <div *ngIf="showFontColorOptions" class="option-container">
+      <label for="fontColor" class="form-label">Font Color:</label>
+      <input type="color" id="fontColor" [(ngModel)]="fontColor" (input)="applyAllAdjustments()" class="form-control">
+    </div>
+  </div>
+  <div class="menu-item">
+    <button mat-icon-button (click)="toggleBrightnessOptions()">
+      <mat-icon>brightness_6</mat-icon>
+    </button>
+    <span>Brightness</span>
+    <div *ngIf="showBrightnessOptions" class="option-container">
+      <label for="brightness" class="form-label">Brightness:</label>
+      <input type="range" id="brightness" min="0" max="200" value="100" (input)="adjustBrightness($event)" class="form-range">
+    </div>
+  </div>
+  <div class="menu-item">
+    <button mat-icon-button (click)="toggleSaturationOptions()">
+      <mat-icon>water</mat-icon>
+    </button>
+    <span>Saturation</span>
+    <div *ngIf="showSaturationOptions" class="option-container">
+      <label for="saturation" class="form-label">Saturation:</label>
+      <input type="range" id="saturation" min="0" max="200" value="100" (input)="adjustSaturation($event)" class="form-range">
+    </div>
+  </div>
+  <div class="menu-item">
+    <button mat-icon-button (click)="toggleCropOptions()">
+      <mat-icon>crop</mat-icon>
+    </button>
+    <span>Crop</span>
+    <div *ngIf="showCropOptions" class="option-container">
+      <label for="cropShape" class="form-label">Crop Shape:</label>
+      <select id="cropShape" class="form-select" (change)="applyCrop($event)">
+        <option value="square">Square</option>
+        <option value="circle">Circle</option>
+        <option value="triangle">Triangle</option>
+      </select>
+    </div>
+  </div>
+  <div class="menu-item">
+    <button mat-icon-button (click)="applyGrayscale()">
+      <mat-icon>circle</mat-icon>
+    </button>
+    <span>Grayscale</span>
+  </div>
+</div>
+<div class="modal-footer">
+  <button mat-raised-button color="primary" class="m-3" (click)="saveChanges()">Save</button>
+</div>

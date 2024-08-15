@@ -1,0 +1,19 @@
+<h1 mat-dialog-title>Preview Images</h1>
+<div mat-dialog-content>
+  <div class="preview-container">
+    <div class="preview-card" *ngFor="let file of data.selectedFiles; let i = index">
+      <div class="preview-image" [ngStyle]="{'background-image': 'url(' + file.preview + ')'}"></div>
+      <div class="preview-details">
+        <div class="file-name">{{file.file.name}}</div>
+        <div class="file-size">{{(file.file.size / 1024).toFixed(2)}} KB</div>
+      </div>
+      <button mat-icon-button class="remove-button" (click)="removeFile(i)">
+        <mat-icon>close</mat-icon>
+      </button>
+    </div>
+  </div>
+</div>
+<div mat-dialog-actions>
+  <button mat-button (click)="onCancel()">Cancel</button>
+  <button mat-raised-button color="primary" (click)="onUpload()">Upload</button>
+</div>

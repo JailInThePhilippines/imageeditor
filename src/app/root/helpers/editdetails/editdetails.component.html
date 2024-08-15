@@ -1,0 +1,11 @@
+<h1 mat-dialog-title>Edit {{data.field}}</h1>
+<div mat-dialog-content class="edit-dialog-content">
+  <mat-form-field appearance="fill" class="full-width">
+    <mat-label>Enter new {{data.field}}</mat-label>
+    <input matInput [(ngModel)]="data.value">
+  </mat-form-field>
+</div>
+<div mat-dialog-actions class="edit-dialog-actions">
+  <button mat-button (click)="onCancel()">Cancel</button>
+  <button mat-button color="primary" (click)="onSave()">Save</button>
+</div>

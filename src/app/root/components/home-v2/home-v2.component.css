@@ -1,0 +1,158 @@
+/* custum-file-upload */
+.custum-file-upload {
+  height: 95%;
+  width: 305px;
+  display: flex;
+  flex-direction: column;
+  align-items: space-between;
+  cursor: pointer;
+  align-items: center;
+  justify-content: center;
+  border: 2px dashed #cacaca;
+  background-color: rgba(255, 255, 255, 1);
+  padding: 1.5rem;
+  border-radius: 10px;
+  box-shadow: 0px 48px 35px -48px rgba(0, 0, 0, 0.1);
+}
+
+.custum-file-upload .icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.custum-file-upload .icon i {
+  height: 80px;
+  fill: rgba(75, 85, 99, 1);
+}
+
+.custum-file-upload .text {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.custum-file-upload .text span {
+  font-weight: 400;
+  color: rgba(75, 85, 99, 1);
+}
+
+.custum-file-upload input {
+  display: none;
+}
+
+/* card */
+.card {
+  width: 100%;
+  height: 300px;
+  background: white;
+  padding: .4em;
+  border-radius: 6px;
+  margin-bottom: 1em;
+}
+
+.card-image {
+  background-color: rgb(236, 236, 236);
+  width: 100%;
+  height: 150px;
+  border-radius: 6px 6px 0 0;
+  background-size: cover;
+  background-position: center;
+}
+
+.category {
+  text-transform: uppercase;
+  font-size: 0.7em;
+  font-weight: 600;
+  color: rgb(63, 121, 230);
+  padding: 10px 7px 0;
+}
+
+.category:hover {
+  cursor: pointer;
+}
+
+.heading {
+  font-weight: 600;
+  color: rgb(88, 87, 87);
+  padding: 7px;
+}
+
+.heading:hover {
+  cursor: pointer;
+}
+
+.author {
+  color: gray;
+  font-weight: 400;
+  font-size: 11px;
+  padding-top: 20px;
+}
+
+.name {
+  font-weight: 600;
+}
+
+.name:hover {
+  cursor: pointer;
+}
+
+.more-button {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+  padding: 0;
+}
+
+.more-button mat-icon {
+  color: grey;
+  font-size: 24px;
+}
+
+/* Remove the delete-button styles */
+.delete-button {
+  display: none;
+}
+
+.public-button, .private-button {
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  color: grey;
+}
+
+.private-button {
+  left: 50px;
+}
+
+.public-button.active {
+  color: blue;
+}
+
+.private-button.active {
+  color: green;
+}
+
+::ng-deep .custom-dialog-container {
+  width: 80% !important; /* Adjust the width as needed */
+  height: 80% !important; /* Adjust the height as needed */
+  max-width: none !important; /* Ensure the width is not constrained */
+  max-height: none !important; /* Ensure the height is not constrained */
+}
+
+.edit-icon {
+  position: absolute;
+  top: 0;
+  right: 0;
+  padding: 0;
+}
+
+.small-icon {
+  font-size: 16px; /* Adjust the size as needed */
+}

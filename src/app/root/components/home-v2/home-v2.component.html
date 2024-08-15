@@ -1,0 +1,66 @@
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+<app-navbar></app-navbar>
+
+<div class="container-fluid mt-5">
+  <h1 class="text-white text-center"><b>Your Thumbnails</b></h1>
+</div>
+
+<div class="container-fluid mt-5 d-flex">
+
+
+  <div class="container mt-5">
+    <div class="row">
+      <div class="col-md-3">
+        <label class="custum-file-upload" for="file" (drop)="onDrop($event)" (dragover)="onDragOver($event)">
+          <div class="icon">
+            <i class="fa-solid fa-plus"></i>
+          </div>
+          <div class="text text-center">
+            <span>Click to upload images or Drag your images here.</span>
+          </div>
+          <input type="file" id="file" (change)="onFileSelected($event)" multiple />
+        </label>
+      </div>
+
+      <div class="col-md-3" *ngFor="let thumbnail of thumbnails">
+        <div class="card">
+          <button class="more-button" mat-icon-button [matMenuTriggerFor]="menu">
+            <mat-icon>more_vert</mat-icon>
+          </button>
+          <mat-menu #menu="matMenu">
+            <button mat-menu-item (click)="editThumbnail(thumbnail.image_id)">
+              <span>Edit</span>
+            </button>
+            <button mat-menu-item (click)="confirmDelete(thumbnail.image_id)">
+              <span>Delete</span>
+            </button>
+            <button mat-menu-item (click)="downloadImage(thumbnail.file_path)">
+              <span>Download</span>
+            </button>
+          </mat-menu>
+          <button class="public-button" [ngClass]="{'active': thumbnail.isPublic}" (click)="makePublic(thumbnail.image_id)">
+            <mat-icon>public</mat-icon>
+          </button>
+          <button class="private-button" [ngClass]="{'active': !thumbnail.isPublic}" (click)="makePrivate(thumbnail.image_id)">
+            <mat-icon>lock</mat-icon>
+          </button>
+          <div class="card-image" [ngStyle]="{'background-image': 'url(' + thumbnail.file_path + ')'}"></div>
+          <div class="category position-relative">
+            {{thumbnail.title || 'No Title'}}
+            <button mat-icon-button class="edit-icon" (click)="openEditDetailsDialog(thumbnail.image_id, 'title')">
+              <mat-icon class="small-icon">edit</mat-icon>
+            </button>
+          </div>
+          <div class="heading position-relative">
+            {{thumbnail.description || 'No Description'}}
+            <button mat-icon-button class="edit-icon" (click)="openEditDetailsDialog(thumbnail.image_id, 'description')">
+              <mat-icon class="small-icon">edit</mat-icon>
+            </button>
+            <div class="author">{{thumbnail.timestamp | date:'short'}}</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

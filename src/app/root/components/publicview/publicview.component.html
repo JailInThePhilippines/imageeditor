@@ -1,0 +1,58 @@
+<app-navbar></app-navbar>
+
+<div class="container mt-3">
+  <button mat-button (click)="goBack()" class="mb-3" style="top: 10px; left: 10px; color:white;">
+    <mat-icon>arrow_back</mat-icon> <b>Back </b>
+  </button>
+  <button mat-icon-button (click)="navigateImage('previous')" class="nav-button prev-button">
+    <mat-icon>arrow_back</mat-icon>
+  </button>
+  <button mat-icon-button (click)="navigateImage('next')" class="nav-button next-button">
+    <mat-icon>arrow_forward</mat-icon>
+  </button>
+  <div *ngIf="imageDetails" class="card mb-5">
+    <div class="row no-gutters">
+      <div class="col-md-6 image-section" style="position: relative;">
+        <img [src]="'http://localhost/Gallery/api/' + imageDetails.file_path" class="card-img" alt="{{ imageDetails.title }}" (click)="openImageInFullSize()" title="Click to view full size">
+        <button mat-icon-button style="color: white" class="download-button" (click)="downloadImage(imageDetails.file_path)">
+          <mat-icon>download</mat-icon>
+        </button>
+      </div>
+      <div class="col-md-6 details-section">
+        <div class="title-section mt-3">
+          <h2 class="card-title"><b>{{ imageDetails.title }}</b></h2>
+        </div>
+        <div class="description-section">
+          <div style="display: flex; align-items: center;">
+            <div class="profile-picture" style="margin-right: 5px;">{{ imageDetails.user.charAt(0).toUpperCase() }}</div>
+            <p class="card-text"> {{ imageDetails.user }}</p>
+          </div>
+          <p class="card-text mt-3">{{ imageDetails.description }}</p>
+          <p class="card-text"><small class="text-muted">{{ imageDetails.timestamp }}</small></p>
+        </div>
+        <hr>
+        <div class="comments-section">
+          <h6>Comments</h6>
+          <div class="comments-list">
+            <div *ngFor="let comment of comments" class="comment mb-2" style="display: flex; align-items: center;">
+              <div class="profile-picture">{{ comment.user.charAt(0).toUpperCase() }}</div>
+              <div style="flex: 1; margin-left: 10px;">
+                <strong>{{ comment.user }}</strong>: {{ comment.comment }} 
+                <p class="card-text"><small class="text-muted">{{ comment.timestamp }}</small></p>
+              </div>
+              <button *ngIf="comment.user_id === userId" style="color:brown" mat-icon-button (click)="deleteComment(comment.comment_id)">
+                <mat-icon>delete</mat-icon>
+              </button>
+            </div>
+          </div>
+          <div class="add-comment-section">
+            <input [(ngModel)]="newComment" type="text" class="form-control" placeholder="Add a comment..." />
+            <button mat-icon-button (click)="addComment()">
+              <mat-icon>send</mat-icon>
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

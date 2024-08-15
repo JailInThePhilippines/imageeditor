@@ -1,0 +1,62 @@
+.modal-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.modal-body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: calc(100% - 150px); /* Adjust height to leave space for footer and options */
+  overflow: hidden; /* Remove scrollbars */
+}
+
+.image-container {
+  width: 80%;
+  height: 80%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 10px;
+  border: 1px solid #ccc; /* Add border to separate from editor options */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Add shadow to the container */
+}
+
+.img-fluid {
+  max-width: 100%;
+  max-height: 100%;
+  height: auto;
+}
+
+.editor-options {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  padding: 10px;
+  border-top: 1px solid #ccc;
+}
+
+.menu-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.menu-item span {
+  margin-top: 5px;
+  font-size: 12px;
+  color: #666;
+}
+
+.option-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 5px;
+}
+
+.modal-footer {
+  display: flex;
+  justify-content: flex-end;
+}

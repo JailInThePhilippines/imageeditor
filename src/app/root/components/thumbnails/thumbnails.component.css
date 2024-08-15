@@ -1,0 +1,18 @@
+.card {
+  box-shadow: -2px 13px 21px 1px rgba(0, 0, 0, 0.54);
+  -webkit-box-shadow: -2px 13px 21px 1px rgba(0, 0, 0, 0.54);
+  -moz-box-shadow: -2px 13px 21px 1px rgba(0, 0, 0, 0.54);
+  overflow: hidden;
+}
+
+.card:hover {
+  transform: scale(1.05);
+  transition: all 0.1s ease-in-out;
+  cursor: pointer;
+}
+
+.card {
+  box-shadow: -2px 13px 21px 1px rgba(0, 0, 0, 0.54);
+  -webkit-box-shadow: -2px 13px 21px 1px rgba(0, 0, 0, 0.54);
+  -moz-box-shadow: -2px 13px 21px 1px rgba(0, 0, 0, 0.54);
+}
